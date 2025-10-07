@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #0a0a0a;
+  --surface: #0f1115;
+  --surface-muted: #11151c;
+  --fg: #f5f7fb;
+  --muted: #9ba3ae;
+  --brand: #b7f3d0;
+  --brand-ink: #0b1f17;
+  --stroke: rgba(255, 255, 255, 0.08);
+  --glow1: 180, 255, 220;
+  --glow2: 120, 200, 255;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground antialiased selection:bg-brand/20 selection:text-foreground;
+}
+
+a {
+  @apply text-foreground transition-colors duration-300 hover:text-brand;
+}
+
+:focus-visible {
+  @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-background;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.section-padding {
+  @apply py-24 md:py-32;
+}
+
+.container-grid {
+  @apply mx-auto max-w-6xl px-6 md:px-12;
+}
+
+.glass-surface {
+  @apply rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-xl;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at top left, rgba(var(--glow1), 0.28), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(var(--glow2), 0.22), transparent 60%),
+    linear-gradient(140deg, rgba(255, 255, 255, 0.04), transparent 70%);
+}
